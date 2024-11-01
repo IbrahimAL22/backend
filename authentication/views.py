@@ -26,7 +26,7 @@ class SignInView(generics.GenericAPIView):
                     "token": str(refresh.access_token),  # Correctly access the access token
                     "username": user.username,  # Send the username
                     "message": "Login successful"
-                }, status=status.HTTP_200_OK)
+                }, headers={"Content-Type": "application/json; charset=utf-8"}, status=status.HTTP_200_OK)
 
             return Response({"detail": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
